@@ -4,14 +4,14 @@ services:
     container_name: container_db
     build: ./docker/db
     ports:
-      - ${DB_PORT}:${DB_CONTAINER_PORT}
+      - "8306:3306"
     volumes:
-      - ${DB_WORKDIR}:${DB_CONTAINER_WORKDIR}
-      - ${DB_CONFD_WORKDIR}:${DB_CONFD_CONTAINER_WORKDIR}
+      - "/var/lib/mysql:/var/lib/mysql"
+      - "/etc/mysql/conf.d:/etc/mysql/conf.d"
     environment:
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      MYSQL_DATABASE: ${DB_DATABASE}
-      MYSQL_USER: ${DB_USER}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
     restart: always
 
   app:
@@ -20,16 +20,11 @@ services:
       context: .
       dockerfile: ./docker/app/Dockerfile
     ports:
-      - ${APP_PORT}:${APP_CONTAINER_PORT}
+      - "5443:4443"
     volumes:
-      - ${APP_WORKDIR}:${APP_CONTAINER_WORKDIR}
-      - ${APP_LOG_WORKDIR}:${APP_LOG_CONTAINER_WORKDIR}
+      - ".:/test11_client_jenkins"
+      - "./logs:/test11_client_jenkins/logs"
     depends_on:
       - mysql
     restart: always
 
-#  adminer:
-#    build: ./docker/adminer
-#    ports:
-#      - "6080:8080"
-#    restart: always

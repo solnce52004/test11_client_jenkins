@@ -14,11 +14,11 @@ pipeline {
                     sh "./gradlew build"
                 }
         }
-        stage("Checkout code") {
-              steps {
-                 checkout scm
-              }
-        }
+//         stage("Checkout code") {
+//               steps {
+//                  checkout scm
+//               }
+//         }
 
         stage('docker-compose build') {
              steps {
