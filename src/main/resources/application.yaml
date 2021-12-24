@@ -1,0 +1,79 @@
+server:
+  address: 0.0.0.0
+  port: 8443
+  compression:
+    enabled: true
+  http2:
+    enabled: true
+
+  error:
+    whitelabel:
+      enabled: false
+  ssl:
+    enabled: true
+    key-alias: ${ssl.alias}
+    key-store: ${ssl.file.path}
+    key-store-type: PKCS12
+
+    key-password: ${ssl.password}
+    key-store-password: ${ssl.password}
+    trust-store-password: ${ssl.password}
+
+spring:
+  datasource:
+    url: "jdbc:mysql://${server.address}:3306/test10?characterEncoding=utf8"
+    username: ${datasource.username}
+    password: ${datasource.password}
+    driver-class-name: "com.mysql.cj.jdbc.Driver"
+
+  profiles:
+    active: "dev"
+
+  jpa:
+    database-platform: "org.hibernate.dialect.MySQL8Dialect"
+    generate-ddl: true
+
+    properties:
+      hibernate:
+        default_batch_fetch_size: 20
+        jdbc:
+          batch_size: 10
+          order_inserts: true
+          order_updates: true
+
+    # решает ошибку ClassCastException EntityManagerHolder
+    open-in-view: false
+
+  jackson:
+    serialization:
+      indent-output: true
+      write_dates_as_timestamps: false
+
+  flyway:
+    enabled: true
+    url: "jdbc:mysql://${server.address}:3306/test10?characterEncoding=utf8"
+    user: ${datasource.username}
+    password: ${datasource.password}
+
+  boot:
+    admin:
+      client:
+        enabled: true
+        url: "http://188.212.125.157:5555"
+
+logging:
+  config: "classpath:log4j2.properties"
+  level:
+    ROOT: INFO
+    org:
+      springframework.web: DEBUG
+      hibernate: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
