@@ -1,0 +1,35 @@
+version: "3.9"
+services:
+  mysql:
+    container_name: container_db
+    build: ./docker/db
+    ports:
+      - ${DB_PORT}:${DB_CONTAINER_PORT}
+    volumes:
+      - ${DB_WORKDIR}:${DB_CONTAINER_WORKDIR}
+      - ${DB_CONFD_WORKDIR}:${DB_CONFD_CONTAINER_WORKDIR}
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USER}
+    restart: always
+
+  app:
+    container_name: container
+    build:
+      context: .
+      dockerfile: ./docker/app/Dockerfile
+    ports:
+      - ${APP_PORT}:${APP_CONTAINER_PORT}
+    volumes:
+      - ${APP_WORKDIR}:${APP_CONTAINER_WORKDIR}
+      - ${APP_LOG_WORKDIR}:${APP_LOG_CONTAINER_WORKDIR}
+    depends_on:
+      - db
+    restart: always
+
+#  adminer:
+#    build: ./docker/adminer
+#    ports:
+#      - "6080:8080"
+#    restart: always
