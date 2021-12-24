@@ -27,7 +27,7 @@ pipeline {
         }
         stage('docker-compose up') {
              steps {
-                 sh "docker-compose up -d --abort-on-container-exit"
+                 sh "docker-compose up -d"
              }
         }
 
