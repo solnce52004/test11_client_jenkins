@@ -3,7 +3,7 @@ pipeline {
     environment {
         registry = "solnce52004/test11_client_jenkins"
         registryCredential = 'dockerhub'
-        containerName = 'container'
+        containerName = 'container_client_app'
     }
 
     agent any

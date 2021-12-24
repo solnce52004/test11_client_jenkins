@@ -15,7 +15,7 @@ services:
     restart: always
 
   app:
-    container_name: container
+    container_name: container_client_app
     build:
       context: .
       dockerfile: ./docker/app/Dockerfile
