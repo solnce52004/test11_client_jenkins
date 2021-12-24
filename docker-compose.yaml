@@ -25,7 +25,7 @@ services:
       - ${APP_WORKDIR}:${APP_CONTAINER_WORKDIR}
       - ${APP_LOG_WORKDIR}:${APP_LOG_CONTAINER_WORKDIR}
     depends_on:
-      - db
+      - mysql
     restart: always
 
 #  adminer:
