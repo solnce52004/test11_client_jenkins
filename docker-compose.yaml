@@ -12,7 +12,8 @@ services:
       MYSQL_ROOT_PASSWORD: Zerkalo82
       MYSQL_DATABASE: Zerkalo82
       MYSQL_USER: jenkins
-    restart: always
+    network_mode: "host"
+    restart: "no"
 
   test11_client_jenkins:
     container_name: container_client_app
@@ -24,5 +25,5 @@ services:
       - ./logs:/test11_client_jenkins/logs
     depends_on:
       - mysql
-    restart: always
+    restart: "no"
 
