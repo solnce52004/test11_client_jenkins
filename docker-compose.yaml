@@ -17,7 +17,7 @@ services:
       MYSQL_PASSWORD: "Zerkalo82"
       MYSQL_ROOT_USER: "root"
       MYSQL_ROOT_PASSWORD: "Zerkalo82"
-      MYSQL_ROOT_HOST: 127.0.0.1
+      MYSQL_ROOT_HOST: 0.0.0.0
     #    network_mode: "host"
     restart: "no"
 
