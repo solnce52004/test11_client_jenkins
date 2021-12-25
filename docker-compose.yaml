@@ -17,13 +17,13 @@ services:
       MYSQL_PASSWORD: "Zerkalo82"
       MYSQL_ROOT_USER: "root"
       MYSQL_ROOT_PASSWORD: "Zerkalo82"
-#      MYSQL_ROOT_HOST: 0.0.0.0
-#    network_mode: "host"
+    #      MYSQL_ROOT_HOST: 0.0.0.0
     restart: "no"
 
   test11_client_jenkins:
     container_name: container_client_app
     image: "solnce52004/test11_client_jenkins:latest"
+    network_mode: "host"
     ports:
       - 5443:4443
     volumes:
