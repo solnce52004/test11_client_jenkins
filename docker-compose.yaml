@@ -3,8 +3,8 @@ services:
   mysql:
     container_name: container_db
     build: ./docker/db
-    ports:
-      - "8306:3306"
+#    ports:
+#      - "8306:3306"
     volumes:
       - /var/lib/mysql:/var/lib/mysql
       - /etc/mysql/conf.d:/etc/mysql/conf.d
@@ -12,10 +12,7 @@ services:
       MYSQL_ROOT_PASSWORD: Zerkalo82
       MYSQL_DATABASE: Zerkalo82
       MYSQL_USER: jenkins
-      #    network_mode: "host"
-      networks:
-        aliases:
-          - localhost
+      network_mode: "host"
     restart: "no"
 
   test11_client_jenkins:
