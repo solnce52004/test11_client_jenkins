@@ -12,12 +12,12 @@ services:
       - /etc/init.d/mysql:/etc/init.d/mysql
       - /var/log/mysql/error.log:/var/log/mysql/error.log
     environment:
-      MYSQL_DATABASE: test11_client_jenkins
-      MYSQL_USER: root
-      MYSQL_PASSWORD: Zerkalo82
-      MYSQL_ROOT_USER: root
-      MYSQL_ROOT_PASSWORD: Zerkalo82
-      MYSQL_ROOT_HOST: 188.212.125.157
+      MYSQL_DATABASE: "test11_client_jenkins"
+      MYSQL_USER: "root"
+      MYSQL_PASSWORD: "Zerkalo82"
+      MYSQL_ROOT_USER: "root"
+      MYSQL_ROOT_PASSWORD: "Zerkalo82"
+      MYSQL_ROOT_HOST: "188.212.125.157"
     #    network_mode: "host"
     restart: "no"
 
@@ -29,6 +29,8 @@ services:
     volumes:
       - .:/test11_client_jenkins
       - ./logs:/test11_client_jenkins/logs
+    links:
+      - mysql
     depends_on:
       - mysql
     restart: "no"
