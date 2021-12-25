@@ -3,8 +3,8 @@
 #RUN ./gradlew build
 
 FROM adoptopenjdk/openjdk11:alpine-jre
-WORKDIR .
-ARG JAR_FILE=./build/libs/test11_client_jenkins-0.0.1-SNAPSHOT.jar
+WORKDIR /test11_client_jenkins
+ARG JAR_FILE=${WORKDIR}/build/libs/test11_client_jenkins-0.0.1-SNAPSHOT.jar
 COPY ${JAR_FILE} app.jar
 
 EXPOSE 4443
