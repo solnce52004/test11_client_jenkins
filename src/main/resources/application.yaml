@@ -21,7 +21,7 @@ server:
 
 spring:
   datasource:
-    url: "jdbc:mysql://172.17.0.1:3306/test11_client_jenkins?characterEncoding=utf8"
+    url: "jdbc:mysql://localhost:3306/test11_client_jenkins?characterEncoding=utf8"
     username: ${datasource.username}
     password: ${datasource.password}
     driver-class-name: "com.mysql.cj.jdbc.Driver"
@@ -51,7 +51,7 @@ spring:
 
   flyway:
     enabled: false
-    url: "jdbc:mysql://172.17.0.1:3306/test11_client_jenkins?characterEncoding=utf8"
+    url: "jdbc:mysql://localhost:3306/test11_client_jenkins?characterEncoding=utf8"
     user: ${datasource.username}
     password: ${datasource.password}
 
