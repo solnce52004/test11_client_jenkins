@@ -50,7 +50,7 @@ spring:
       write_dates_as_timestamps: false
 
   flyway:
-    enabled: true
+    enabled: false
     url: "jdbc:mysql://localhost:3306/test11_client_jenkins?characterEncoding=utf8"
     user: ${datasource.username}
     password: ${datasource.password}
