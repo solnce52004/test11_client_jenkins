@@ -24,6 +24,7 @@ services:
   test11_client_jenkins:
     container_name: container_client_app
     image: "solnce52004/test11_client_jenkins:latest"
+    command: --add-host=local:172.17.0.1
 #    network_mode: "host" - invalidArgument: "host" network_mode is incompatible with port_bindings
     ports:
       - 5443:4443
