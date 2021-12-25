@@ -11,6 +11,7 @@ services:
       - /etc/mysql/mysql.conf.d:/etc/mysql/conf.d
       - /etc/init.d/mysql:/etc/init.d/mysql
       - /var/log/mysql/error.log:/var/log/mysql/error.log
+      - /var/run/mysqld/mysqld.sock:/var/run/mysqld/mysql.sock
     environment:
       MYSQL_DATABASE: "test11_client_jenkins"
       MYSQL_USER: "root"
