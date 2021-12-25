@@ -49,11 +49,11 @@ spring:
       indent-output: true
       write_dates_as_timestamps: false
 
-#  flyway:
-#    enabled: false
-#    url: "jdbc:mysql://localhost:3306/test11_client_jenkins?characterEncoding=utf8"
-#    user: ${datasource.username}
-#    password: ${datasource.password}
+  flyway:
+    enabled: false
+    url: "jdbc:mysql://0.0.0.0:3306/test11_client_jenkins?characterEncoding=utf8"
+    user: ${datasource.username}
+    password: ${datasource.password}
 
   boot:
     admin:
