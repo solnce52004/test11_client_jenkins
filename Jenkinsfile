@@ -36,7 +36,7 @@ pipeline {
         stage('Docker build') {
              steps {
                   script{
-                       myApp =  docker.build(registry + ":${env.BUILD_ID}", "./docker/app")
+                       myApp =  docker.build(registry + ":${env.BUILD_ID}", ".")
                   }
              }
         }
