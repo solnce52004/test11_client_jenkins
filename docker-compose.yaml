@@ -12,7 +12,11 @@ services:
       MYSQL_ROOT_PASSWORD: Zerkalo82
       MYSQL_DATABASE: Zerkalo82
       MYSQL_USER: jenkins
-    network_mode: "host"
+      #    network_mode: "host"
+      networks:
+        test:
+          aliases:
+            - localhost
     restart: "no"
 
   test11_client_jenkins:
