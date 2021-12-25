@@ -6,15 +6,15 @@ services:
     ports:
       - "8306:3306"
     volumes:
-      - "/var/lib/mysql:/var/lib/mysql"
-      - "/etc/mysql/conf.d:/etc/mysql/conf.d"
+      - /var/lib/mysql:/var/lib/mysql
+      - /etc/mysql/conf.d:/etc/mysql/conf.d
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
     restart: always
 
-  app:
+  solnce52004/test11_client_jenkins:
     container_name: container_client_app
     build:
       context: .
@@ -22,8 +22,8 @@ services:
     ports:
       - "5443:4443"
     volumes:
-      - ".:/test11_client_jenkins"
-      - "./logs:/test11_client_jenkins/logs"
+      - .:/test11_client_jenkins
+      - ./logs:/test11_client_jenkins/logs
     depends_on:
       - mysql
     restart: always
