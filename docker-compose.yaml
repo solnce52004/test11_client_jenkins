@@ -14,7 +14,7 @@ services:
       MYSQL_USER: ${MYSQL_USER}
     restart: always
 
-  solnce52004/test11_client_jenkins:
+  test11_client_jenkins:
     container_name: container_client_app
     build:
       context: .
