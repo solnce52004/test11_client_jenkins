@@ -4,7 +4,7 @@ services:
     container_name: container_db
     build: ./docker/db
     ports:
-      - "8306:3306"
+      - 8306:3306
     volumes:
       - /var/lib/mysql:/var/lib/mysql
       - /etc/mysql/conf.d:/etc/mysql/conf.d
@@ -22,7 +22,7 @@ services:
     container_name: container_client_app
     image: "solnce52004/test11_client_jenkins:latest"
     ports:
-      - "5443:4443"
+      - 5443:4443
     volumes:
       - .:/test11_client_jenkins
       - ./logs:/test11_client_jenkins/logs
