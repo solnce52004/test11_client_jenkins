@@ -9,16 +9,14 @@ services:
       - /var/lib/mysql:/var/lib/mysql
       - /etc/mysql/conf.d:/etc/mysql/conf.d
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_ROOT_PASSWORD: Zerkalo82
+      MYSQL_DATABASE: Zerkalo82
+      MYSQL_USER: jenkins
     restart: always
 
   test11_client_jenkins:
     container_name: container_client_app
-    build:
-      context: .
-      dockerfile: ./docker/app/Dockerfile
+    image: solnce52004/test11_client_jenkins:latest
     ports:
       - "5443:4443"
     volumes:
@@ -26,5 +24,5 @@ services:
       - ./logs:/test11_client_jenkins/logs
     depends_on:
       - mysql
-    restart: always
+    restart: no
 
