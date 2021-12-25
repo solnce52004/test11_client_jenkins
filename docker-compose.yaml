@@ -9,10 +9,13 @@ services:
       - /var/lib/mysql:/var/lib/mysql
       - /etc/mysql/conf.d:/etc/mysql/conf.d
     environment:
+      MYSQL_DATABASE: test11_client_jenkins
+#      MYSQL_USER: jenkins
+#      MYSQL_PASSWORD: Zerkalo82
+      MYSQL_ROOT_USER: root
       MYSQL_ROOT_PASSWORD: Zerkalo82
-      MYSQL_DATABASE: Zerkalo82
-      MYSQL_USER: jenkins
-      network_mode: "host"
+      MYSQL_ROOT_HOST: localhost
+    network_mode: "host"
     restart: "no"
 
   test11_client_jenkins:
