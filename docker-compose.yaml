@@ -44,7 +44,7 @@ services:
     networks:
       - test11_client_default
 
-  networks:
-    test11_client_default:
-      driver: bridge
+#  networks:
+#    test11_client_default:
+#      driver: bridge
 
