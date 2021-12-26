@@ -3,7 +3,9 @@ pipeline {
     environment {
         registry = "solnce52004/test11_client_jenkins"
         registryCredential = 'dockerhub'
-        containerName = 'container_client_app'
+        containerName = 'test11_client_jenkins-service'
+        registryDb = "mysql"
+        containerNameDb = 'mysql-service'
     }
 
     agent any
@@ -22,6 +24,18 @@ pipeline {
                        || true && docker rm %s && docker rmi -f $(docker images | grep %s | awk '{print $3}') \
                         || true
                      ''',
+                     containerNameDb,
+                     containerNameDb,
+                     registryDb
+                 )
+            }
+            steps {
+                 sh String.format(
+                     '''
+                        docker stop %s \
+                       || true && docker rm %s && docker rmi -f $(docker images | grep %s | awk '{print $3}') \
+                        || true
+                     ''',
                      containerName,
                      containerName,
                      registry
@@ -33,31 +47,23 @@ pipeline {
                   checkout scm
              }
         }
-//         stage('mySql') {
-//             agent {
-//                 docker { image 'mysql:8.0.27' }
-//             }
-//             steps {
-//                 sh "echo 'mySql run...'"
-//             }
-//         }
-        stage('Docker build') {
+        stage('Docker build app') {
              steps {
                   script{
-                       myApp =  docker.build(registry + ":${env.BUILD_ID}", ".")
+                       myApp =  docker.build(registry + ":latest", ".")
                   }
              }
         }
-        stage('Docker push') {
-            steps {
-                script{
-                  docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
-                       myApp.push("${env.BUILD_ID}")
-                       myApp.push("latest")
-                   }
-                }
-            }
-        }
+//         stage('Docker push') {
+//             steps {
+//                 script{
+//                   docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
+//                        myApp.push("${env.BUILD_ID}")
+//                        myApp.push("latest")
+//                    }
+//                 }
+//             }
+//         }
 
         stage('set network') {
              steps {

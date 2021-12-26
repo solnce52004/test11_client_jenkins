@@ -23,7 +23,7 @@ services:
       - test11
 
   test11_client_jenkins:
-    container_name: container_client_app
+    container_name: test11_client_jenkins-service
     image: solnce52004/test11_client_jenkins:latest
 #    network_mode: "host" - "host" network_mode is incompatible with port_bindings
     ports:
@@ -32,7 +32,7 @@ services:
       - .:/test11_client_jenkins
       - ./logs:/test11_client_jenkins/logs
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-service:3306/test11_client_jenkins?createDatabaseIfNotExist=true&serverTimezone=UTC
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-service:3306/test11_client_jenkins
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: Zerkalo82
     depends_on:
