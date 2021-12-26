@@ -21,9 +21,9 @@ server:
 
 spring:
   datasource:
-    url: "jdbc:mysql://mysql:3306/test11_client_jenkins"
-    username: ${datasource.username}
-    password: ${datasource.password}
+    url: "jdbc:mysql://mysql-service:3306/test11_client_jenkins"
+    username: root
+    password: Zerkalo82
     driver-class-name: "com.mysql.cj.jdbc.Driver"
 
   profiles:
@@ -51,9 +51,9 @@ spring:
 
   flyway:
     enabled: false
-    url: "jdbc:mysql://mysql:3306/test11_client_jenkins"
-    user: ${datasource.username}
-    password: ${datasource.password}
+    url: "jdbc:mysql://mysql-service:3306/test11_client_jenkins"
+    user: root
+    password: Zerkalo82
 
   boot:
     admin:
