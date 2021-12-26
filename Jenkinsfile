@@ -51,7 +51,6 @@ pipeline {
             }
         }
 
-
         stage('set network') {
              steps {
                  sh "docker network create -d bridge test11 || true"
@@ -59,12 +58,12 @@ pipeline {
         }
         stage('docker-compose build') {
              steps {
-                 sh "docker-compose build"
+                 sh "docker-compose build --no-cache"
              }
         }
         stage('docker-compose up app') {
              steps {
-                 sh "docker-compose up -d"
+                 sh "docker-compose up -d --build"
              }
         }
     }
