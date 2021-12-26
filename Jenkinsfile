@@ -33,14 +33,14 @@ pipeline {
                   checkout scm
              }
         }
-        stage('mySql') {
-            agent {
-                docker { image 'mysql:8.0.27' }
-            }
-            steps {
-                sh "echo 'mySql run...'"
-            }
-        }
+//         stage('mySql') {
+//             agent {
+//                 docker { image 'mysql:8.0.27' }
+//             }
+//             steps {
+//                 sh "echo 'mySql run...'"
+//             }
+//         }
         stage('Docker build') {
              steps {
                   script{
