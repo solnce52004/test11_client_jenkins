@@ -28,8 +28,7 @@ pipeline {
                      containerNameDb,
                      registryDb
                  )
-            }
-            steps {
+
                  sh String.format(
                      '''
                         docker stop %s \
