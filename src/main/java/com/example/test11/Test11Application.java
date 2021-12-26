@@ -14,9 +14,9 @@ public class Test11Application {
     private static String driver;
 
     public static void main(String[] args) {
+        SpringApplication.run(Test11Application.class, args);
         System.out.println("-------- app started ---------");
         System.out.println("-------- url ---------" + url);
         System.out.println("-------- driver ---------" + driver);
-        SpringApplication.run(Test11Application.class, args);
     }
 }

@@ -21,14 +21,14 @@ server:
 
 spring:
   datasource:
-    url: "${SPRING_DATASOURCE_URL}"
-    username: ${SPRING_DATASOURCE_USERNAME}
-    password: ${SPRING_DATASOURCE_PASSWORD}
+    url: "jdbc:mysql://mysql-service:3306/test11_client_jenkins"
+    username: root
+    password: Zerkalo82
     driver-class-name: "com.mysql.cj.jdbc.Driver"
-    hikari:
-      jdbc-url: ${SPRING_DATASOURCE_URL}
-      password: ${SPRING_DATASOURCE_PASSWORD}
-      username: ${SPRING_DATASOURCE_USERNAME}
+#    hikari:
+#      jdbc-url: ${SPRING_DATASOURCE_URL}
+#      password: ${SPRING_DATASOURCE_PASSWORD}
+#      username: ${SPRING_DATASOURCE_USERNAME}
 
   profiles:
     active: "dev"
@@ -54,9 +54,9 @@ spring:
 
   flyway:
     enabled: true
-    url: ${SPRING_DATASOURCE_URL}
-    user: ${SPRING_DATASOURCE_USERNAME}
-    password: ${SPRING_DATASOURCE_PASSWORD}
+    url: "jdbc:mysql://mysql-service:3306/test11_client_jenkins"
+    user: root
+    password: Zerkalo82
 
   boot:
     admin:
