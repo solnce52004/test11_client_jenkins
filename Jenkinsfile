@@ -33,6 +33,14 @@ pipeline {
                   checkout scm
              }
         }
+        stage('mySql') {
+            agent {
+                docker { image 'mysql:8.0.27' }
+            }
+            steps {
+                sh "echo 'mySql run...'"
+            }
+        }
         stage('Docker build') {
              steps {
                   script{
@@ -64,12 +72,12 @@ pipeline {
 
         stage('docker-compose up mysql-service') {
              steps {
-                 sh "docker-compose up -d --build mysql-service"
+                 sh "docker-compose up -d --build --force-recreate mysql-service"
              }
         }
         stage('docker-compose up app') {
              steps {
-                 sh "docker-compose up -d --build test11_client_jenkins"
+                 sh "docker-compose up -d --force-recreate --build test11_client_jenkins"
              }
         }
     }
