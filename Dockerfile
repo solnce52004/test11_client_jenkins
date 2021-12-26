@@ -8,4 +8,4 @@ ARG JAR_FILE=./build/libs/test11_client_jenkins-0.0.1-SNAPSHOT.jar
 COPY ${JAR_FILE} app.jar
 
 EXPOSE 4443
-ENTRYPOINT ["java", "-Dspring.datasource.url=mysql://mysql-service:3306/test11_client_jenkins", "-Dspring.datasource.username=root", "-Dspring.datasource.password=Zerkalo82", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-Dspring.datasource.url=jdbc:mysql://mysql-service:3306/test11_client_jenkins", "-Dspring.datasource.username=root", "-Dspring.datasource.password=Zerkalo82", "-jar", "app.jar"]
