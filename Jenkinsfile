@@ -57,14 +57,9 @@ pipeline {
                  sh "docker-compose build"
              }
         }
-        stage('docker-compose up mysql') {
-             steps {
-                 sh "docker-compose up -d mysql-service"
-             }
-        }
         stage('docker-compose up app') {
              steps {
-                 sh "docker-compose up -d test11_client_jenkins"
+                 sh "docker-compose up"
              }
         }
     }
