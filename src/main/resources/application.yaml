@@ -27,6 +27,8 @@ spring:
     driver-class-name: "com.mysql.cj.jdbc.Driver"
     hikari:
       jdbc-url: ${SPRING_DATASOURCE_URL}
+      password: ${SPRING_DATASOURCE_PASSWORD}
+      username: ${SPRING_DATASOURCE_USERNAME}
 
   profiles:
     active: "dev"

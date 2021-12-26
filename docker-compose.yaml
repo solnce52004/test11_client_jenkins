@@ -32,7 +32,7 @@ services:
       - .:/test11_client_jenkins
       - ./logs:/test11_client_jenkins/logs
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-service:3306/test11_client_jenkins?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-service:3306/test11_client_jenkins?createDatabaseIfNotExist=true&serverTimezone=UTC
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: Zerkalo82
     depends_on:
