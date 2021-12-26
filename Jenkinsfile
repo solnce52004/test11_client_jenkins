@@ -77,7 +77,7 @@ pipeline {
         }
         stage('docker-compose up app') {
              steps {
-                 sh "docker-compose up -d --force-recreate --build test11_client_jenkins"
+                 sh "docker-compose up -d --force-recreate --build test11_client_jenkins sh"
              }
         }
     }
