@@ -35,7 +35,7 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql-service:3306/test11_client_jenkins?autoReconnect=true&useSSL=false
     depends_on:
-      - mysql
+      - mysql-service
     restart: "no"
     networks:
       - test11
