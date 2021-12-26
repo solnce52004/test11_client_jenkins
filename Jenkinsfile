@@ -46,13 +46,13 @@ pipeline {
                   checkout scm
              }
         }
-        stage('Docker build app') {
-             steps {
-                  script{
-                       myApp =  docker.build(registry + ":latest", ".")
-                  }
-             }
-        }
+//         stage('Docker build app') {
+//              steps {
+//                   script{
+//                        myApp =  docker.build(registry + ":latest", ".")
+//                   }
+//              }
+//         }
 //         stage('Docker push') {
 //             steps {
 //                 script{
