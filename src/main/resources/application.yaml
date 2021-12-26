@@ -25,10 +25,11 @@ spring:
     username: ${SPRING_DATASOURCE_USERNAME}
     password: ${SPRING_DATASOURCE_PASSWORD}
     driver-class-name: "com.mysql.cj.jdbc.Driver"
+    hikari:
+      jdbc-url: ${SPRING_DATASOURCE_URL}
 
   profiles:
     active: "dev"
-
   jpa:
     database-platform: "org.hibernate.dialect.MySQL8Dialect"
     generate-ddl: true
