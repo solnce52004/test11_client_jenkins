@@ -1,3 +1,4 @@
+CREATE DATABASE IF NOT EXISTS test11_client_jenkins CHARACTER SET utf8 COLLATE utf8_general_ci;
 create table users
 (
     id BIGINT auto_increment,
