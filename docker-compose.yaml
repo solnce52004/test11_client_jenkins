@@ -1,9 +1,9 @@
-version: "3.9"
+version: "3.1"
 services:
   mysql:
-    container_name: container_db
-    image: "mysql:8.0.27"
-    command: --default-authentication-plugin=mysql_native_password --network=test11
+    container_name: mysql
+    image: mysql:8.0.27
+    command: --default-authentication-plugin=mysql_native_password
     ports:
       - 8306:3306
     volumes:
@@ -16,28 +16,24 @@ services:
       MYSQL_DATABASE: "test11_client_jenkins"
       MYSQL_USER: "root"
       MYSQL_PASSWORD: "Zerkalo82"
-      MYSQL_ROOT_USER: "root"
+#      MYSQL_ROOT_USER: "root"
       MYSQL_ROOT_PASSWORD: "Zerkalo82"
-      MYSQL_ROOT_HOST: '%'
+#      MYSQL_ROOT_HOST: '%'
     restart: "no"
     networks:
       - test11
 
   test11_client_jenkins:
     container_name: container_client_app
-    image: "solnce52004/test11_client_jenkins:latest"
-    command: --network=test11
-    #    command: --network="test11_client_default"
-    #    network_mode: "host" - invalidArgument: "host" network_mode is incompatible with port_bindings
+    image: solnce52004/test11_client_jenkins:latest
+#    network_mode: "host" - "host" network_mode is incompatible with port_bindings
     ports:
       - 5443:4443
     volumes:
       - .:/test11_client_jenkins
       - ./logs:/test11_client_jenkins/logs
-    environment:
-      DB_URL: 'jdbc:mysql://mysql:3306/test11_client_jenkins?serverTimezone=UTC'
-    links:
-      - "mysql:test11_client_jenkins"
+#    environment:
+#      DB_URL: jdbc:mysql://mysql:3306/test11_client_jenkins
     depends_on:
       - mysql
     restart: "no"
