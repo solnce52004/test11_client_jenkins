@@ -3,7 +3,7 @@ services:
   mysql:
     container_name: container_db
     image: "mysql:8.0.27"
-    command: --default-authentication-plugin=mysql_native_password --network=test11_client_default
+    command: --default-authentication-plugin=mysql_native_password --network=test11
     ports:
       - 8306:3306
     volumes:
@@ -26,7 +26,7 @@ services:
   test11_client_jenkins:
     container_name: container_client_app
     image: "solnce52004/test11_client_jenkins:latest"
-    command: --network=test11_client_default
+    command: --network=test11
     #    command: --network="test11_client_default"
     #    network_mode: "host" - invalidArgument: "host" network_mode is incompatible with port_bindings
     ports:
