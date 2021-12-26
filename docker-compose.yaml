@@ -44,9 +44,9 @@ services:
     networks:
       - test11
 
-  networks:
-    test11:
-      external: true
-      name: test11
-      driver: bridge
+networks:
+  test11:
+    external: true
+    name: test11
+    driver: bridge
 
