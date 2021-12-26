@@ -8,10 +8,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Test11Application {
     @Value("${spring.datasource.url}")
     private static String url;
+    @Value("${spring.datasource.driver-class-name}")
+    private static String driver;
 
     public static void main(String[] args) {
-        System.out.println("-------- app started ---------");
-        System.out.println("-------- spring.datasource.url ---------" + url);
         SpringApplication.run(Test11Application.class, args);
+        System.out.println("-------- app started ---------");
+        System.out.println("-------- url ---------" + url);
+        System.out.println("-------- driver ---------" + driver);
     }
 }
