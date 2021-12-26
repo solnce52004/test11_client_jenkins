@@ -52,6 +52,11 @@ pipeline {
         }
 
 
+        stage('set network') {
+             steps {
+                 sh "docker network create -d bridge test11 || true"
+             }
+        }
         stage('docker-compose build') {
              steps {
                  sh "docker-compose build"
