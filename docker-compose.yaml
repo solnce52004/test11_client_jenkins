@@ -32,9 +32,9 @@ services:
       - .:/test11_client_jenkins
       - ./logs:/test11_client_jenkins/logs
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-service:3306/test11_client_jenkins
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: Zerkalo82
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-service:3306/test11_client_jenkins
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=Zerkalo82
     depends_on:
       - mysql-service
     restart: on-failure
