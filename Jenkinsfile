@@ -74,15 +74,9 @@ pipeline {
                  sh "docker-compose build --no-cache"
              }
         }
-
-        stage('docker-compose up mysql-service') {
-             steps {
-                 sh "docker-compose up -d --build mysql-service"
-             }
-        }
         stage('docker-compose up app') {
              steps {
-                 sh "docker-compose up -d --build test11_client_jenkins"
+                 sh "docker-compose up -d --build"
              }
         }
     }
