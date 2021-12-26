@@ -13,12 +13,11 @@ services:
       - /var/log/mysql/error.log:/var/log/mysql/error.log
       - /var/run/mysqld/mysqld.sock:/var/run/mysqld/mysql.sock
     environment:
+      MYSQL_ROOT_HOST: '%'
       MYSQL_DATABASE: test11_client_jenkins
       MYSQL_USER: root
       MYSQL_PASSWORD: Zerkalo82
-#      MYSQL_ROOT_USER: "root"
       MYSQL_ROOT_PASSWORD: Zerkalo82
-#      MYSQL_ROOT_HOST: '%'
     restart: always
     networks:
       - test11
@@ -33,10 +32,12 @@ services:
       - .:/test11_client_jenkins
       - ./logs:/test11_client_jenkins/logs
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-service:3306/test11_client_jenkins?autoReconnect=true&useSSL=false
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-service:3306/test11_client_jenkins?useSSL=false&allowPublicKeyRetrieval=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: Zerkalo82
     depends_on:
       - mysql-service
-    restart: always
+    restart: on-failure
     networks:
       - test11
 
