@@ -57,11 +57,16 @@ pipeline {
 //                 }
 //             }
 //         }
+//         stage('docker-compose build') {
+//              steps {
+//                  sh "docker network create -d bridge test11 || true \
+//                  && docker-compose build --no-cache \
+//                  && docker-compose up -d  --build  --force-recreate test11_client_jenkins-service"
+//              }
+//         }
         stage('docker-compose build') {
              steps {
-                 sh "docker network create -d bridge test11 || true \
-                 && docker-compose build --no-cache \
-                 && docker-compose up -d  --build  --force-recreate test11_client_jenkins-service"
+                 sh "docker-compose up --build --force-recreate test11_client_jenkins-service"
              }
         }
     }
