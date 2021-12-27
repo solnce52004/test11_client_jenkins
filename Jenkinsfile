@@ -11,7 +11,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Docker rmi') {
+//         stage('Docker rmi') {
 //             steps {
 //                  sh String.format(
 //                      '''
