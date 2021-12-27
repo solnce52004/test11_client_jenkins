@@ -6,6 +6,8 @@ FROM adoptopenjdk/openjdk11:alpine-jre
 WORKDIR .
 ARG JAR_FILE=./build/libs/test11_client_jenkins-0.0.1-SNAPSHOT.jar
 COPY ${JAR_FILE} app.jar
-RUN "ls"
+RUN "var/lib/dpkg/info/ca-certificates-java.postinst configure"
+RUN "cd /home && ls"
+RUN "cd /usr/lib/jvm && ls"
 EXPOSE 4443
-ENTRYPOINT ["java", "-Djavax.net.ssl.trustStore=/usr/lib/jvm/java-11-openjdk-amd64/lib/security/cacerts", "-Djavax.net.ssl.trustStorePassword=changeit", "-jar","app.jar"]
+ENTRYPOINT ["java", "-Djavax.net.ssl.trustStore=usr/lib/jvm/java-11-openjdk-amd64/conf/security", "-Djavax.net.ssl.trustStorePassword=changeit", "-jar","app.jar"]
