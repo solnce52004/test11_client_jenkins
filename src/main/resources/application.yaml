@@ -24,7 +24,7 @@ spring:
     url: "jdbc:mysql://mysql-service:3306/test11_client_jenkins"
     username: root
     password: Zerkalo82
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
 #    hikari:
 #      jdbc-url: ${SPRING_DATASOURCE_URL}
 #      password: ${SPRING_DATASOURCE_PASSWORD}
