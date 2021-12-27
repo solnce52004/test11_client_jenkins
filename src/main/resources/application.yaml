@@ -63,6 +63,8 @@ spring:
       client:
         enabled: true
         url: "http://188.212.125.157:5555"
+        instance:
+          management-url: "https://188.212.125.157:5443"
 
 logging:
   config: "classpath:log4j2.properties"
