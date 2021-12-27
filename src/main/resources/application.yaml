@@ -18,7 +18,7 @@ server:
     key-password: ${SSl_PASSWORD}
     key-store-password: ${SSl_PASSWORD}
     trust-store-password: changeit
-    trust-store: /etc/ssl/certs/java/cacerts
+    trust-store: /usr/lib/jvm/java-11-openjdk-amd64/lib/security/cacerts
 
 spring:
   datasource:

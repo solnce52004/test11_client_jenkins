@@ -29,7 +29,7 @@ services:
     volumes:
       - .:/test11_client_jenkins
       - ./logs:/test11_client_jenkins/logs
-      - /etc/ssl/certs/java:/etc/ssl/certs/java
+      - /usr/lib/jvm/java-11-openjdk-amd64/lib/security/:/usr/lib/jvm/java-11-openjdk-amd64/lib/security/
     environment:
       SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
       SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
