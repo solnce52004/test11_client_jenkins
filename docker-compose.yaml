@@ -22,7 +22,7 @@ services:
     networks:
       - test11
 
-  test11_client_jenkins:
+  test11_client_jenkins-service:
     container_name: test11_client_jenkins-service
     image: solnce52004/test11_client_jenkins:latest
     ports:
