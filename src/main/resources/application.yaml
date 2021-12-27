@@ -11,13 +11,13 @@ server:
       enabled: false
   ssl:
     enabled: true
-    key-alias: localtomcat
-    key-store: classpath:ssl/local-tomcat-private.p12
+    key-alias: ${SSL_ALIAS}
+    key-store: ${SSL_KEY_FILE}
     key-store-type: PKCS12
 
-    key-password: Zerkalo82
-    key-store-password: Zerkalo82
-    trust-store-password: Zerkalo82
+    key-password: ${SSl_PASSWORD}
+    key-store-password: ${SSl_PASSWORD}
+    trust-store-password: ${SSl_PASSWORD}
 
 spring:
   datasource:
@@ -65,6 +65,8 @@ spring:
         url: "http://188.212.125.157:5555"
         instance:
           management-url: "https://188.212.125.157:5443"
+          health-url: "https://188.212.125.157:5443/actuator/health"
+          service-url: "https://188.212.125.157:5443"
 
 logging:
   config: "classpath:log4j2.properties"
