@@ -46,17 +46,17 @@ pipeline {
 //                   checkout scm
 //              }
 //         }
-        stage('Docker push') {
-            steps {
-                script{
-                  docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
-                       myApp = docker.build(registry + ":latest", ".")
-                       myApp.push("${env.BUILD_ID}")
-                       myApp.push("latest")
-                   }
-                }
-            }
-        }
+//         stage('Docker push') {
+//             steps {
+//                 script{
+//                   docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
+//                        myApp = docker.build(registry + ":latest", ".")
+//                        myApp.push("${env.BUILD_ID}")
+//                        myApp.push("latest")
+//                    }
+//                 }
+//             }
+//         }
 
         stage('docker-compose build') {
              steps {
