@@ -11,11 +11,11 @@ pipeline {
     agent any
 
     stages {
-//         stage('Build') {
-//              steps {
-//                     sh "./gradlew build"
-//                 }
-//         }
+        stage('Build') {
+             steps {
+                    sh "./gradlew build"
+                }
+        }
 //         stage('Docker rmi') {
 //             steps {
 //                  sh String.format(
@@ -46,13 +46,13 @@ pipeline {
 //                   checkout scm
 //              }
 //         }
-//         stage('Docker build app') {
-//              steps {
-//                   script{
-//                        myApp =  docker.build(registry + ":latest", ".")
-//                   }
-//              }
-//         }
+        stage('Docker build app') {
+             steps {
+                  script{
+                       myApp =  docker.build(registry + ":latest", ".")
+                  }
+             }
+        }
 //         stage('Docker push') {
 //             steps {
 //                 script{
@@ -64,19 +64,11 @@ pipeline {
 //             }
 //         }
 
-        stage('set network') {
-             steps {
-                 sh "docker network create -d bridge test11 || true"
-             }
-        }
         stage('docker-compose build') {
              steps {
-                 sh "docker-compose build --no-cache"
-             }
-        }
-        stage('docker-compose up app') {
-             steps {
-                 sh "docker-compose up -d --build"
+                 sh "docker network create -d bridge test11 || true \
+                 docker-compose build --no-cache \
+                 docker-compose up -d --build --force-recreate"
              }
         }
     }
