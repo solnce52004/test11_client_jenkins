@@ -54,9 +54,9 @@ spring:
 
   flyway:
     enabled: false
-    url: "jdbc:mysql://mysql-service:3306/test11_client_jenkins"
-    user: root
-    password: Zerkalo82
+    url: ${SPRING_DATASOURCE_URL}
+    user: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
 
   boot:
     admin:
