@@ -11,11 +11,6 @@ pipeline {
     agent any
 
     stages {
-        stage('gradlew build') {
-             steps {
-                    sh "./gradlew build"
-                }
-        }
         stage('Docker rmi') {
             steps {
                  sh String.format(
@@ -41,23 +36,22 @@ pipeline {
                  )
             }
         }
-//         stage("Checkout code") {
-//              steps {
-//                   checkout scm
-//              }
-//         }
-//         stage('Docker push') {
-//             steps {
-//                 script{
-//                   docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
-//                        myApp = docker.build(registry + ":latest", ".")
-//                        myApp.push("${env.BUILD_ID}")
-//                        myApp.push("latest")
-//                    }
-//                 }
-//             }
-//         }
-
+        stage('gradlew build') {
+             steps {
+                    sh "./gradlew build"
+                }
+        }
+        stage('Docker push') {
+            steps {
+                script{
+                  docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
+                       myApp = docker.build(registry + ":latest", ".")
+                       myApp.push("${env.BUILD_ID}")
+                       myApp.push("latest")
+                   }
+                }
+            }
+        }
         stage('docker-compose build') {
              steps {
                  sh "docker network create -d bridge test11 || true \
