@@ -3,7 +3,6 @@ services:
   mysql-service:
     container_name: mysql-service
     image: mysql:8.0.27
-#    command: --default-authentication-plugin=mysql_native_password
     ports:
       - 3307:3306
     volumes:
@@ -30,10 +29,10 @@ services:
     volumes:
       - .:/test11_client_jenkins
       - ./logs:/test11_client_jenkins/logs
-#    environment:
-#      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-service:3306/test11_client_jenkins
-#      SPRING_DATASOURCE_USERNAME: root
-#      SPRING_DATASOURCE_PASSWORD: Zerkalo82
+    environment:
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_PASSWORD}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_USERNAME}
     links:
       - mysql-service
     depends_on:
