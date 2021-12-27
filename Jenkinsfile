@@ -11,48 +11,48 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
-             steps {
-                    sh "./gradlew build"
-                }
-        }
-        stage('Docker rmi') {
-            steps {
-                 sh String.format(
-                     '''
-                        docker stop %s \
-                       || true && docker rm %s && docker rmi -f $(docker images | grep %s | awk '{print $3}') \
-                       || true
-                     ''',
-                     containerNameDb,
-                     containerNameDb,
-                     registryDb
-                 )
-
-                 sh String.format(
-                     '''
-                        docker stop %s \
-                       || true && docker rm %s && docker rmi -f $(docker images | grep %s | awk '{print $3}') \
-                       || true
-                     ''',
-                     containerName,
-                     containerName,
-                     registry
-                 )
-            }
-        }
-        stage("Checkout code") {
-             steps {
-                  checkout scm
-             }
-        }
-        stage('Docker build app') {
-             steps {
-                  script{
-                       myApp =  docker.build(registry + ":latest", ".")
-                  }
-             }
-        }
+//         stage('Build') {
+//              steps {
+//                     sh "./gradlew build"
+//                 }
+//         }
+//         stage('Docker rmi') {
+//             steps {
+//                  sh String.format(
+//                      '''
+//                         docker stop %s \
+//                        || true && docker rm %s && docker rmi -f $(docker images | grep %s | awk '{print $3}') \
+//                        || true
+//                      ''',
+//                      containerNameDb,
+//                      containerNameDb,
+//                      registryDb
+//                  )
+//
+//                  sh String.format(
+//                      '''
+//                         docker stop %s \
+//                        || true && docker rm %s && docker rmi -f $(docker images | grep %s | awk '{print $3}') \
+//                        || true
+//                      ''',
+//                      containerName,
+//                      containerName,
+//                      registry
+//                  )
+//             }
+//         }
+//         stage("Checkout code") {
+//              steps {
+//                   checkout scm
+//              }
+//         }
+//         stage('Docker build app') {
+//              steps {
+//                   script{
+//                        myApp =  docker.build(registry + ":latest", ".")
+//                   }
+//              }
+//         }
 //         stage('Docker push') {
 //             steps {
 //                 script{
