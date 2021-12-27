@@ -36,34 +36,22 @@ pipeline {
                  )
             }
         }
-//         stage('gradlew build') {
-//              steps {
-//                     sh "./gradlew build"
-//                 }
-//         }
-//         stage('build') {
-//              steps {
-//                     sh "docker build -t solnce52004/test11_client_jenkins:latest ."
-//                 }
-//         }
-//         stage('Docker push') {
-//             steps {
-//                 script{
-//                   docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
-//                        myApp = docker.build(registry + ":latest", ".")
-//                        myApp.push("latest")
-// //                        myApp.push("${env.BUILD_ID}")
-//                    }
-//                 }
-//             }
-//         }
-//         stage('docker-compose build') {
-//              steps {
-//                  sh "docker network create -d bridge test11 || true \
-//                  && docker-compose build --no-cache \
-//                  && docker-compose up -d  --build  --force-recreate test11_client_jenkins-service"
-//              }
-//         }
+        stage('gradlew build') {
+             steps {
+                    sh "./gradlew build"
+                }
+        }
+        stage('Docker push') {
+            steps {
+                script{
+                  docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
+                       myApp = docker.build(registry + ":latest", ".")
+                       myApp.push("latest")
+//                        myApp.push("${env.BUILD_ID}")
+                   }
+                }
+            }
+        }
         stage('docker-compose build') {
              steps {
                  sh "docker network create -d bridge test11 || true \
