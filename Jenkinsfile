@@ -46,22 +46,17 @@ pipeline {
                     sh "docker build -t solnce52004/test11_client_jenkins:latest ."
                 }
         }
-        stage('push') {
-             steps {
-                    sh "docker push solnce52004/test11_client_jenkins:latest"
-                }
-        }
-//         stage('Docker push') {
-//             steps {
-//                 script{
-//                   docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
-//                        myApp = docker.build(registry + ":latest", ".")
-//                        myApp.push("latest")
+        stage('Docker push') {
+            steps {
+                script{
+                  docker.withRegistry('https://docker.io', registryCredential) {
+                       myApp = docker.build(registry + ":latest", ".")
+                       myApp.push("latest")
 //                        myApp.push("${env.BUILD_ID}")
-//                    }
-//                 }
-//             }
-//         }
+                   }
+                }
+            }
+        }
         stage('docker-compose build') {
              steps {
                  sh "docker network create -d bridge test11 || true \
