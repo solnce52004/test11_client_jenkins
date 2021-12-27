@@ -49,7 +49,7 @@ pipeline {
         stage('Docker push') {
             steps {
                 script{
-                  docker.withRegistry('https://docker.io', registryCredential) {
+                  docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
                        myApp = docker.build(registry + ":latest", ".")
                        myApp.push("latest")
 //                        myApp.push("${env.BUILD_ID}")
