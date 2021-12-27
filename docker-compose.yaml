@@ -27,7 +27,7 @@ services:
     image: solnce52004/test11_client_jenkins:latest
 #    network_mode: "host" - "host" network_mode is incompatible with port_bindings
     ports:
-      - 5443:4443
+      - 188.212.125.157:5443:4443
     volumes:
       - .:/test11_client_jenkins
       - ./logs:/test11_client_jenkins/logs
