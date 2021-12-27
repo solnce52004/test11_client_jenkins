@@ -25,11 +25,8 @@ services:
   test11_client_jenkins:
     container_name: test11_client_jenkins-service
     image: solnce52004/test11_client_jenkins:latest
-#    build:
-#      context: .
-#      dockerfile: ./docker/app/Dockerfile
     ports:
-      - 188.212.125.157:5443:4443
+      - 5443:4443
     volumes:
       - .:/test11_client_jenkins
       - ./logs:/test11_client_jenkins/logs

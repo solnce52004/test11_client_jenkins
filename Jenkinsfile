@@ -48,7 +48,7 @@ pipeline {
         }
         stage('push') {
              steps {
-                    sh "docker push solnce52004/test11_client_jenkins:latest"
+                    sh "docker push solnce52004/test11_client_jenkins:1"
                 }
         }
 //         stage('Docker push') {
@@ -56,8 +56,8 @@ pipeline {
 //                 script{
 //                   docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
 //                        myApp = docker.build(registry + ":latest", ".")
-//                        myApp.push("${env.BUILD_ID}")
 //                        myApp.push("latest")
+//                        myApp.push("${env.BUILD_ID}")
 //                    }
 //                 }
 //             }
