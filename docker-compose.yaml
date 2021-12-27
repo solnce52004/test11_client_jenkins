@@ -24,7 +24,7 @@ services:
 
   test11_client_jenkins:
     container_name: test11_client_jenkins-service
-    image: solnce52004/test11_client_jenkins:latest
+    image: registry.hub.docker.com/solnce52004/test11_client_jenkins:latest
 #    build:
 #      context: .
 #      dockerfile: ./docker/app/Dockerfile
