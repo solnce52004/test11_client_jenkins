@@ -30,6 +30,7 @@ services:
       - .:/test11_client_jenkins
       - ./logs:/test11_client_jenkins/logs
       - /usr/lib/jvm/java-11-openjdk-amd64/lib/security/:/usr/lib/jvm/java-11-openjdk-amd64/lib/security/
+      - /etc/ssl/certs/java/cacerts:/etc/ssl/certs/java/cacerts
     environment:
       SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
       SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
