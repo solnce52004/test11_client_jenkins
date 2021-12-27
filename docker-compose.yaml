@@ -14,9 +14,9 @@ services:
     environment:
       MYSQL_ROOT_HOST: '%'
       MYSQL_DATABASE: test11_client_jenkins
-      MYSQL_USER: root
-      MYSQL_PASSWORD: Zerkalo82
-      MYSQL_ROOT_PASSWORD: Zerkalo82
+      MYSQL_USER: ${SPRING_DATASOURCE_USERNAME}
+      MYSQL_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
     restart: always
     networks:
       - test11
@@ -31,8 +31,8 @@ services:
       - ./logs:/test11_client_jenkins/logs
     environment:
       SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
-      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_PASSWORD}
-      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
     links:
       - mysql-service
     depends_on:
