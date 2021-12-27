@@ -17,7 +17,7 @@ server:
 
     key-password: ${SSl_PASSWORD}
     key-store-password: ${SSl_PASSWORD}
-    trust-store-password: ${SSl_PASSWORD}
+    trust-store-password: changeit
 
 spring:
   datasource:
@@ -62,7 +62,7 @@ spring:
     admin:
       client:
         enabled: true
-        url: "http://188.212.125.157:5555"
+        url: "https://188.212.125.157:5555"
         instance:
           management-url: "https://188.212.125.157:5443"
           health-url: "https://188.212.125.157:5443/actuator/health"
@@ -84,3 +84,5 @@ management:
   endpoint:
     health:
       show-details: always
+# переменные окружения теперь пробрасываются через раздел environment в файле docker-compose.yaml
+#
