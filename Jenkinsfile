@@ -48,7 +48,7 @@ pipeline {
         }
         stage('push') {
              steps {
-                    sh "docker push solnce52004/test11_client_jenkins:1"
+                    sh "docker push solnce52004/test11_client_jenkins:latest"
                 }
         }
 //         stage('Docker push') {
