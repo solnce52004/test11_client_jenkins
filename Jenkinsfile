@@ -56,7 +56,7 @@ pipeline {
              steps {
                  sh "docker network create -d bridge test11 || true \
                      && docker-compose build --no-cache \
-                     && docker-compose up --build  --force-recreate"
+                     && docker-compose up -d --build --force-recreate"
              }
         }
     }
