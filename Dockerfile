@@ -6,7 +6,7 @@ FROM adoptopenjdk/openjdk11:alpine-jre
 WORKDIR .
 ARG JAR_FILE=./build/libs/test11_client_jenkins-0.0.1-SNAPSHOT.jar
 COPY ${JAR_FILE} app.jar
-RUN "var/lib/dpkg/info/ca-certificates-java.postinst configure"
+
 RUN "cd /home && ls"
 RUN "cd /usr/lib/jvm && ls"
 EXPOSE 4443
