@@ -12,7 +12,7 @@ pipeline {
 
     stages {
         stage('Docker rmi') {
-            steps {
+//             steps {
 //                  sh String.format(
 //                      '''
 //                         docker stop %s \
@@ -23,19 +23,19 @@ pipeline {
 //                      containerNameDb,
 //                      registryDb
 //                  )
-
-                 sh String.format(
-                     '''
-                        docker stop %s \
-                       || true && docker rm %s && docker rmi -f $(docker images | grep %s | awk '{print $3}') \
-                       || true
-                     ''',
-                     containerName,
-                     containerName,
-                     registry
-                 )
-            }
-        }
+//
+//                  sh String.format(
+//                      '''
+//                         docker stop %s \
+//                        || true && docker rm %s && docker rmi -f $(docker images | grep %s | awk '{print $3}') \
+//                        || true
+//                      ''',
+//                      containerName,
+//                      containerName,
+//                      registry
+//                  )
+//             }
+//         }
 //         stage('gradlew build') {
 //              steps {
 //                     sh "./gradlew build"
@@ -66,7 +66,7 @@ pipeline {
 //         }
         stage('docker-compose build') {
              steps {
-                 sh "docker-compose up --build --force-recreate test11_client_jenkins-service"
+                 sh "docker-compose up --build --force-recreate"
              }
         }
     }
