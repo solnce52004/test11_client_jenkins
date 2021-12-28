@@ -11,7 +11,7 @@ server:
       enabled: false
   ssl:
     enabled: true
-    key-alias: ${SSL_ALIAS}
+    key-alias: gatomcat
     key-store: classpath:ssl/local-tomcat-private.p12
     key-store-type: PKCS12
 
@@ -86,4 +86,3 @@ management:
     health:
       show-details: always
 # переменные окружения теперь пробрасываются через раздел environment в файле docker-compose.yaml
-#
