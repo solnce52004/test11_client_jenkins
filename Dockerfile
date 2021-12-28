@@ -5,9 +5,9 @@
 FROM adoptopenjdk/openjdk11:alpine-jre
 WORKDIR .
 
-ARG CERT="tomcat-private.crt"
+ARG CERT="server.crt"
 COPY $CERT .
-RUN keytool -importcert -file $CERT -alias  -cacerts -storepass changeit -noprompt
+RUN keytool -importcert -file $CERT -alias santomcat -cacerts -storepass changeit -noprompt
 
 ARG JAR_FILE=./build/libs/test11_client_jenkins-0.0.1-SNAPSHOT.jar
 COPY ${JAR_FILE} app.jar
