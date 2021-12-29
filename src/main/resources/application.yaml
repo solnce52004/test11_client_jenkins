@@ -68,14 +68,10 @@ spring:
           management-url: "https://solnce52004.ga:5443"
           health-url: "https://solnce52004.ga:5443/actuator/health"
           service-url: "https://solnce52004.ga:5443"
-
-logging:
-  config: "classpath:log4j2.properties"
-  level:
-    ROOT: INFO
-    org:
-      springframework.web: DEBUG
-      hibernate: INFO
+          name: "solnce52004"
+  application:
+    admin:
+      enabled: true
 
 management:
   endpoints:
@@ -85,8 +81,20 @@ management:
   endpoint:
     health:
       show-details: always
-#  server:
-#    add-application-context-header: true
-#    ssl:
-#      client-auth: none
+  server:
+    address: "https://solnce52004.ga:5443"
+  metrics:
+    enable: true
+    export:
+      graphite:
+        host: "solnce52004.ga"
+
+logging:
+  config: "classpath:log4j2.properties"
+  level:
+    ROOT: INFO
+    org:
+      springframework.web: DEBUG
+      hibernate: INFO
+
 # переменные окружения теперь пробрасываются через раздел environment в файле docker-compose.yaml
