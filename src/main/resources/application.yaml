@@ -47,6 +47,8 @@ spring:
 
     # решает ошибку ClassCastException EntityManagerHolder
     open-in-view: false
+    hibernate:
+      ddl-auto: none
 
   jackson:
     serialization:
@@ -58,6 +60,7 @@ spring:
     url: ${SPRING_DATASOURCE_URL}
     user: ${SPRING_DATASOURCE_USERNAME}
     password: ${SPRING_DATASOURCE_PASSWORD}
+    baseline-on-migrate: true
 
   boot:
     admin:
