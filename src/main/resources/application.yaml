@@ -63,11 +63,11 @@ spring:
     admin:
       client:
         enabled: true
-        url: "http://188.212.125.157:5555"
+        url: "http://solnce52004.ga:5555"
         instance:
-          management-url: "https://188.212.125.157:5443"
-          health-url: "https://188.212.125.157:5443/actuator/health"
-          service-url: "https://188.212.125.157:5443"
+          management-url: "https://solnce52004.ga:5443"
+          health-url: "https://solnce52004.ga:5443/actuator/health"
+          service-url: "https://solnce52004.ga:5443"
 
 logging:
   config: "classpath:log4j2.properties"
@@ -85,4 +85,8 @@ management:
   endpoint:
     health:
       show-details: always
+#  server:
+#    add-application-context-header: true
+#    ssl:
+#      client-auth: none
 # переменные окружения теперь пробрасываются через раздел environment в файле docker-compose.yaml
