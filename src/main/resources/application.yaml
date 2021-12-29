@@ -63,7 +63,7 @@ spring:
     admin:
       client:
         enabled: true
-        url: "http://solnce52004.ga:5555"
+        url: "https://solnce52004.ga:5555"
         instance:
           management-url: "https://solnce52004.ga:5443"
           health-url: "https://solnce52004.ga:5443/actuator/health"
