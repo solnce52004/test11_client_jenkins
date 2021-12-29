@@ -78,8 +78,6 @@ management:
   endpoint:
     health:
       show-details: always
-  server:
-    address: "https://solnce52004.ga:5443"
 
 logging:
   config: "classpath:log4j2.properties"
