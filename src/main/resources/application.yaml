@@ -69,9 +69,6 @@ spring:
           health-url: "https://solnce52004.ga:5443/actuator/health"
           service-url: "https://solnce52004.ga:5443"
           name: "solnce52004"
-  application:
-    admin:
-      enabled: true
 
 management:
   endpoints:
@@ -83,8 +80,6 @@ management:
       show-details: always
   server:
     address: "https://solnce52004.ga:5443"
-  metrics:
-    enable: true
 
 logging:
   config: "classpath:log4j2.properties"
