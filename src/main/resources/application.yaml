@@ -85,9 +85,6 @@ management:
     address: "https://solnce52004.ga:5443"
   metrics:
     enable: true
-    export:
-      graphite:
-        host: "solnce52004.ga"
 
 logging:
   config: "classpath:log4j2.properties"
