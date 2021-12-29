@@ -9,6 +9,7 @@ server:
   error:
     whitelabel:
       enabled: false
+    include-message: always
   ssl:
     enabled: true
     key-alias: santomcat
@@ -69,7 +70,6 @@ spring:
           health-url: "https://solnce52004.ga:5443/actuator/health"
           service-url: "https://solnce52004.ga:5443"
           name: "solnce52004"
-
 management:
   endpoints:
     web:
