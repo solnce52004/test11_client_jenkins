@@ -3,6 +3,7 @@ services:
   mysql-service:
     container_name: mysql-service
     image: mysql:8.0.27
+    user: root
     ports:
       - 188.212.125.157:3307:3306
     volumes:
@@ -32,7 +33,7 @@ services:
       - /usr/lib/jvm/java-11-openjdk-amd64/lib/security/:/usr/lib/jvm/java-11-openjdk-amd64/lib/security/
       - /etc/ssl/certs/java/cacerts:/etc/ssl/certs/java/cacerts
     environment:
-      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-service:3306/test11_client_jenkins
       SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
       SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
       SSL_ALIAS: ${SSL_ALIAS}
