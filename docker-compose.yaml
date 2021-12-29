@@ -4,7 +4,7 @@ services:
     container_name: mysql-service
     image: mysql:8.0.27
     ports:
-      - 3307:3306
+      - 188.212.125.157:3307:3306
     volumes:
       - /var/lib/mysql:/var/lib/mysql
       - /etc/mysql/mysql.conf.d:/etc/mysql/conf.d
@@ -25,7 +25,7 @@ services:
     container_name: test11_client_jenkins-service
     image: solnce52004/test11_client_jenkins:latest
     ports:
-      - 5443:4443
+      - 188.212.125.157:5443:4443
     volumes:
       - .:/test11_client_jenkins
       - ./logs:/test11_client_jenkins/logs
