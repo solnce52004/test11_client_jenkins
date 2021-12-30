@@ -61,25 +61,25 @@ spring:
     password: ${SPRING_DATASOURCE_PASSWORD}
     baseline-on-migrate: true
 
-# для локального тестирования меняем порты
+# для локального тестирования меняем: - порты,  -http, dev., ssl false
   boot:
     admin:
       client:
         enabled: true
-        url: "https://solnce52004.ga:5555"
+#        урл данного клиента
+        url: https://solnce52004.ga:5555
         instance:
-          management-url: "https://solnce52004.ga:5443/actuator"
-          health-url: "https://solnce52004.ga:5443/actuator/health"
-          name: "solnce52004"
+#          обязательный путь для отображения всех метрик и графиков
+#          в соответствии с настройками маски в настройках ниже
+          management-url: https://solnce52004.ga:5443/actuator
+#          обязательный путь для получения метрик
+          health-url: https://solnce52004.ga:5443/actuator/health
+#          необязательное название клиента для отображения в админке
+          name: solnce52004
+#          обязательный путь к метрикам клиента
           service-path: /actuator
-
-logging:
-  config: "classpath:log4j2.properties"
-  level:
-    ROOT: INFO
-    org:
-      springframework.web: DEBUG
-      hibernate: INFO
+#          домашняя страница сервиса (данного клиента)
+          service-url: https://solnce52004.ga:5443
 
 management:
   endpoints:
@@ -89,4 +89,13 @@ management:
   endpoint:
     health:
       show-details: always
+
+logging:
+  config: "classpath:log4j2.properties"
+  level:
+    ROOT: INFO
+    org:
+      springframework.web: DEBUG
+      hibernate: INFO
+
 # переменные окружения теперь пробрасываются через раздел environment в файле docker-compose.yaml
