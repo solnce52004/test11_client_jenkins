@@ -72,15 +72,15 @@ spring:
 #        урл клиента (из контейнера торчит 5443, но nginx перенаправляет на 443)!!!
 #          обязательный путь для отображения всех метрик и графиков
 #          в соответствии с настройками маски в настройках ниже
-          management-url: https://solnce52004.ga:443/actuator
+          management-url: https://solnce52004.ga:5443/actuator
 #          обязательный путь для получения метрик
-          health-url: https://solnce52004.ga:443/actuator/health
+          health-url: https://solnce52004.ga:5443/actuator/health
 #          необязательное название клиента для отображения в админке
           name: solnce52004
 #          обязательный путь к метрикам клиента
           service-path: /actuator
 #          домашняя страница сервиса (данного клиента)
-          service-url: https://solnce52004.ga:443
+          service-url: https://solnce52004.ga:5443
 
 management:
   endpoints:
