@@ -5,7 +5,6 @@ server:
     enabled: true
   http2:
     enabled: true
-
   error:
     whitelabel:
       enabled: false
@@ -62,15 +61,17 @@ spring:
     password: ${SPRING_DATASOURCE_PASSWORD}
     baseline-on-migrate: true
 
+# для локального тестирования меняем порты
   boot:
     admin:
       client:
         enabled: true
         url: "https://solnce52004.ga:5555"
         instance:
-          management-url: "https://solnce52004.ga:5443"
+          management-url: "https://solnce52004.ga:5443/actuator"
           health-url: "https://solnce52004.ga:5443/actuator/health"
-          service-url: "https://solnce52004.ga:5443"
+          name: "solnce52004"
+          service-path: /actuator
 
 logging:
   config: "classpath:log4j2.properties"
@@ -84,7 +85,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: '*'
   endpoint:
     health:
       show-details: always
